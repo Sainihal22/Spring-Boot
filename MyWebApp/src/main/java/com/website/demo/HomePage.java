@@ -1,6 +1,7 @@
 package com.website.demo;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,22 +32,26 @@ public class HomePage
 	
 	@RequestMapping("/login")
 //	@ResponseBody
-	public String login(HttpServletRequest req)
+	public String login(HttpServletRequest req, ModelMap model)
 	{
+		String username="Ram";
+		String password="123456";
 		System.out.println("Login Function");
 		HttpSession session = req.getSession();
-		String name="null";
-		String pwd = "null";
-		name = req.getParameter("uname");
-		pwd = req.getParameter("psw");
+		String name = req.getParameter("uname");
+		String pwd = req.getParameter("psw");
 		System.out.println(name+ " "+pwd);
-		if(name=="ram" && pwd=="123")
-			System.out.println("Jai Shree Ram");
-//		if(name!="null" && pwd!="null")
-//		{
-//			System.out.println(name+ " "+pwd);
-//			return "Main.jsp";
-//		}
+		if((name!=null && pwd!=null) && (name.equals(username)&& pwd.equals(password)))
+		{
+			System.out.println(name+ " "+pwd);
+			System.out.println("Got it");
+			return "redirect:/";
+		}
+		else if(name!=null && pwd!=null)
+		{
+			model.put("errorMsg", "Please Provide the correct Credentials");
+			return "Login.jsp";
+		}
 //			
 		return "Login.jsp";
 	}

@@ -65,12 +65,14 @@ span.psw {
   }
 }
 </style>
+<title> Login Portal </title>
 </head>
 <body>
 
 <h2>Login Form</h2>
 
-<form action="/login">
+<form action="/login" method="post">
+	<h2> ${errorMsg}</h2>
   <div class="imgcontainer">
     <img src="img_avatar2.png" alt="Avatar" class="avatar">
   </div>

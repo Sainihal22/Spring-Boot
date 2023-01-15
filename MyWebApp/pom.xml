@@ -34,6 +34,11 @@
 		    <artifactId>tomcat-jasper</artifactId>
 		    <version>10.1.4</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		</dependency>
 
 	</dependencies>
 
@@ -44,15 +49,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		  <resources>
-		    <resource>
-		      <directory>resources</directory>
-		      <targetPath>${project.build.outputDirectory}</targetPath>
-		      <includes>
-		        <include>application.properties</include>
-		      </includes>
-		    </resource>
-		  </resources>
+		  
 	</build>
 
 </project>
